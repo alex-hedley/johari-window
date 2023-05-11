@@ -1,0 +1,8 @@
+table tr td {
+    border: 1px black solid;
+    text-align: center;
+}
+
+.selected {
+    font-weight: bold;
+}
