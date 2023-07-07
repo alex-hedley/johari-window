@@ -6,3 +6,29 @@ table tr td {
 .selected {
     font-weight: bold;
 }
+
+table h2 { font-size:1.3em; text-align:right; 	}
+
+.arena {
+    vertical-align:top;
+    background:#ccf;
+    color: #005;
+}
+
+.blind {
+    vertical-align:top;
+    background:#fcc;
+    color: #500;
+}
+
+.facade {
+    vertical-align:top;
+    background:#cfc;
+    color: #050;
+}
+
+.unknown {
+    vertical-align:top;
+    background:#ccc;
+    color: #555;
+}
