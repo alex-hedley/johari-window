@@ -193,29 +193,42 @@
 
     <br />
 
+    <div>
+        <button id="calculateBtn" type="button">Calculate</button>
+    </div>
+
+    <br />
+
     <h2>Outcome</h2>
 
-    <div id="outcome">
-        <table>
-            <!-- <thead></thead> -->
-            <!-- <tfoot></tfoot> -->
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td>Known to Self</td>
-                    <td>Not Known to Self</td>
+    <div id="outcome" style="display:none;">
+        <table id="outcomeChart">
+            <colgroup>
+                <col id="colLabel">
+                <col id="colKnownSelf">
+                <col id="colNotKnownSelf">
+            </colgroup>
+            <thead>
+                <tr id="rowHeader">
+                    <th class="axis-label"></th>
+                    <th class="axis-label">Known to Self</th>
+                    <th class="axis-label">Not Known to Self</th>
                 </tr>
-                <tr>
-                    <td>Known to Others</td>
+            </thead>
+            <tbody>
+                <tr id="rowKnownOthers">
+                    <th class="axis-label">Known to Others</th>
                     <td class="arena">
                         <h2>Arena (Open area)</h2>
+                        <ul id="arenaTraits"></ul>
                     </td>
                     <td class="blind">
                         <h2>Blind Spot</h2>
+                        <ul id="blindTraits"></ul>
                     </td>
                 </tr>
-                <tr>
-                    <td>Not Known to Others</td>
+                <tr id="rowNotKnownOthers">
+                    <th class="axis-label">Not Known to Others</th>
                     <td class="facade">
                         <h2>Façade (Hidden area)</h2>
                     </td>
