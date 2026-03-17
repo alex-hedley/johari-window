@@ -261,6 +261,15 @@ body {
     border-collapse: collapse;
 }
 
+#colLabel {
+    width: 120px;
+}
+
+#colKnownSelf,
+#colNotKnownSelf {
+    width: calc((100% - 120px) / 2);
+}
+
 #outcomeChart th.axis-label,
 #outcomeChart td {
     border: 2px solid var(--color-border);
@@ -273,7 +282,6 @@ body {
 }
 
 #outcomeChart th.axis-label {
-    width: 120px;
     text-align: center;
     font-weight: 600;
     font-size: 0.8rem;
