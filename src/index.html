@@ -2,20 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Johari Window</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
-    
-    <div>
-        <h1>Johari Window / Nohari Window</h1>
-    </div>
 
-    <hr />
+    <header class="site-header">
+        <div class="container">
+            <h1>Johari Window</h1>
+            <p class="subtitle">A tool for self-awareness and personal development</p>
+        </div>
+    </header>
 
-    <div>
+    <main class="container">
+
+    <section class="instructions card">
+        <h2>How to use</h2>
+        <p>Select up to <strong>5 traits</strong> from each table that you feel describe you, then click <strong>Calculate</strong> to see your Johari Window.</p>
+    </section>
+
+    <div class="tables-grid">
+        <section class="card">
         <table id="tableJohari">
-            <caption>Johari Window</caption>
+            <caption>Johari Window <span class="caption-sub">— Positive traits</span></caption>
             <!-- <thead><tr><th></th></tr> -->
             </thead>
             <tbody>
@@ -99,13 +112,11 @@
             </tbody>
             <!-- <tfoot><tr><td></td></tr></tfoot> -->
         </table>
-    </div>
+        </section>
 
-    <br />
-
-    <div>
+        <section class="card">
         <table id="tableNohari">
-            <caption>Nohari Window</caption>
+            <caption>Nohari Window <span class="caption-sub">— Negative traits</span></caption>
             <!-- <thead><tr><th></th></tr> -->
             </thead>
             <tbody>
@@ -189,19 +200,15 @@
             </tbody>
             <!-- <tfoot><tr><td></td></tr></tfoot> -->
         </table>
+        </section>
     </div>
 
-    <br />
-
-    <div>
-        <button id="calculateBtn" type="button">Calculate</button>
+    <div class="action-bar">
+        <button id="calculateBtn" type="button">Calculate My Window</button>
+        <p class="selection-hint">Select up to 5 traits in each table above</p>
     </div>
 
-    <br />
-
-    <h2>Outcome</h2>
-
-    <div id="outcome" style="display:none;">
+    <section id="outcome" class="card outcome-section" style="display:none;">
         <table id="outcomeChart">
             <colgroup>
                 <col id="colLabel">
@@ -238,24 +245,25 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </section>
 
-    <br />
-
-    <div id="chartContainer" style="display:none;">
+    <section id="chartContainer" class="card" style="display:none;">
         <h2>Quadrant Chart</h2>
         <div id="mermaidChart"></div>
-    </div>
+    </section>
 
-    <br />
-
-    <hr />
-
-    <h2>Example</h2>
-
-    <div>
+    <section class="card example-section">
+        <h2>Example</h2>
         <img src="images/Johari_Window.png" alt="Johari Window" />
-    </div>
+    </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Johari Window &mdash; A model for self-awareness and interpersonal communication</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
