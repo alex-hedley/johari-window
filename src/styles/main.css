@@ -69,3 +69,12 @@ table h2 { font-size:1.3em; text-align:right; 	}
     background:#ccc;
     color: #555;
 }
+
+#chartContainer {
+    max-width: 800px;
+}
+
+#mermaidChart svg {
+    max-width: 100%;
+    height: auto;
+}
