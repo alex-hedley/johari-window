@@ -138,8 +138,8 @@ function calculateWindow() {
     // Apply column widths using the actual rendered table width
     var contentWidth = $('#outcomeChart').width() - LABEL_WIDTH_PX;
     $('#colLabel').css('width', LABEL_WIDTH_PX + 'px');
-    $('#colKnownSelf').css('width', Math.round(selfPct / 100 * contentWidth) + 'px');
-    $('#colNotKnownSelf').css('width', Math.round(notSelfPct / 100 * contentWidth) + 'px');
+    // $('#colKnownSelf').css('width', Math.round(selfPct / 100 * contentWidth) + 'px');
+    // $('#colNotKnownSelf').css('width', Math.round(notSelfPct / 100 * contentWidth) + 'px');
 
     // Apply row heights proportionally within the chart body
     $('#rowKnownOthers').css('height', Math.round(othersPct / 100 * contentHeight) + 'px');
