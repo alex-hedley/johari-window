@@ -1,3 +1,73 @@
+if (typeof mermaid !== 'undefined') {
+    mermaid.initialize({ startOnLoad: false });
+}
+
+// Predefined scatter positions (up to 5 points) within each quadrant.
+// Index corresponds to the count of traits (1–5) selected.
+var ARENA_POSITIONS = [
+    [[0.75, 0.75]],
+    [[0.65, 0.78], [0.87, 0.78]],
+    [[0.6, 0.83], [0.75, 0.63], [0.9, 0.83]],
+    [[0.62, 0.87], [0.87, 0.87], [0.62, 0.62], [0.87, 0.62]],
+    [[0.58, 0.87], [0.73, 0.87], [0.88, 0.87], [0.65, 0.62], [0.85, 0.62]]
+];
+
+var BLIND_POSITIONS = [
+    [[0.25, 0.75]],
+    [[0.13, 0.78], [0.37, 0.78]],
+    [[0.1, 0.83], [0.25, 0.63], [0.42, 0.83]],
+    [[0.12, 0.87], [0.38, 0.87], [0.12, 0.62], [0.38, 0.62]],
+    [[0.08, 0.87], [0.23, 0.87], [0.38, 0.87], [0.15, 0.62], [0.35, 0.62]]
+];
+
+var chartRenderCount = 0;
+
+function buildChartDefinition(johariTraits, nohariTraits) {
+    var lines = [
+        'quadrantChart',
+        '    title Johari Window',
+        '    x-axis Not Known to Self --> Known to Self',
+        '    y-axis Not Known to Others --> Known to Others',
+        '    quadrant-1 Arena',
+        '    quadrant-2 Blind Spot',
+        '    quadrant-3 Unknown',
+        '    quadrant-4 Facade'
+    ];
+
+    if (johariTraits.length > 0) {
+        var arenaCount = Math.min(johariTraits.length, ARENA_POSITIONS.length);
+        var arenaPos = ARENA_POSITIONS[arenaCount - 1];
+        johariTraits.slice(0, arenaCount).forEach(function(trait, i) {
+            var pos = arenaPos[i];
+            lines.push('    ' + trait + ': [' + pos[0] + ', ' + pos[1] + ']');
+        });
+    }
+
+    if (nohariTraits.length > 0) {
+        var blindCount = Math.min(nohariTraits.length, BLIND_POSITIONS.length);
+        var blindPos = BLIND_POSITIONS[blindCount - 1];
+        nohariTraits.slice(0, blindCount).forEach(function(trait, i) {
+            var pos = blindPos[i];
+            lines.push('    ' + trait + ': [' + pos[0] + ', ' + pos[1] + ']');
+        });
+    }
+
+    return lines.join('\n');
+}
+
+function renderChart(johariTraits, nohariTraits) {
+    if (typeof mermaid === 'undefined') { return; }
+    chartRenderCount++;
+    var chartId = 'johariChart' + chartRenderCount;
+    var chartDef = buildChartDefinition(johariTraits, nohariTraits);
+    mermaid.render(chartId, chartDef).then(function(result) {
+        document.getElementById('mermaidChart').innerHTML = result.svg;
+        document.getElementById('chartContainer').style.display = 'block';
+    }).catch(function(err) {
+        console.error('Chart render error:', err);
+    });
+}
+
 function handleTraitClick(tableId, e) {
     var $cell = $(e.currentTarget);
     var classList = $cell.attr("class");
@@ -77,6 +147,8 @@ function calculateWindow() {
 
     // Scroll to outcome
     $('html, body').animate({ scrollTop: $('#outcome').offset().top }, 500);
+
+    renderChart(johariTraits, nohariTraits);
 }
 
 $('#calculateBtn').click(calculateWindow);
