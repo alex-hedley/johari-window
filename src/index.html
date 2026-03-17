@@ -209,6 +209,7 @@
     </div>
 
     <section id="outcome" class="card outcome-section" style="display:none;">
+        <h2 class="section-title">Outcome</h2>
         <table id="outcomeChart">
             <colgroup>
                 <col id="colLabel">
@@ -217,30 +218,30 @@
             </colgroup>
             <thead>
                 <tr id="rowHeader">
-                    <th class="axis-label"></th>
-                    <th class="axis-label">Known to Self</th>
-                    <th class="axis-label">Not Known to Self</th>
+                    <th class="axis-label axis-label-corner"></th>
+                    <th class="axis-label axis-label-col">Known to Self</th>
+                    <th class="axis-label axis-label-col">Not Known to Self</th>
                 </tr>
             </thead>
             <tbody>
                 <tr id="rowKnownOthers">
-                    <th class="axis-label">Known to Others</th>
+                    <th class="axis-label axis-label-row"><span>Known to Others</span></th>
                     <td class="arena">
-                        <h2>Arena (Open area)</h2>
+                        <h2 class="quadrant-title">Arena <span class="quadrant-sub">(Open area)</span></h2>
                         <ul id="arenaTraits"></ul>
                     </td>
                     <td class="blind">
-                        <h2>Blind Spot</h2>
+                        <h2 class="quadrant-title">Blind Spot</h2>
                         <ul id="blindTraits"></ul>
                     </td>
                 </tr>
                 <tr id="rowNotKnownOthers">
-                    <th class="axis-label">Not Known to Others</th>
+                    <th class="axis-label axis-label-row"><span>Not Known to Others</span></th>
                     <td class="facade">
-                        <h2>Façade (Hidden area)</h2>
+                        <h2 class="quadrant-title">Façade <span class="quadrant-sub">(Hidden area)</span></h2>
                     </td>
                     <td class="unknown">
-                        <h2>Unknown</h2>
+                        <h2 class="quadrant-title">Unknown</h2>
                     </td>
                 </tr>
             </tbody>

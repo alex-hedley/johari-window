@@ -276,11 +276,35 @@ body {
     width: 120px;
     text-align: center;
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     background: var(--color-surface);
     color: var(--color-text-muted);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+}
+
+/* Top-row column headers (horizontal axis) */
+#outcomeChart th.axis-label-col {
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/* Row headers (vertical axis) — rotate text so it reads upward */
+#outcomeChart th.axis-label-row {
+    vertical-align: middle;
+    border-right: 2px solid var(--color-primary);
+}
+
+#outcomeChart th.axis-label-row span {
+    display: inline-block;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+}
+
+/* Top-left corner cell */
+#outcomeChart th.axis-label-corner {
+    border-right: 2px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
 }
 
 #outcomeChart ul {
@@ -294,11 +318,22 @@ body {
     margin-bottom: 2px;
 }
 
-table h2 {
-    font-size: 1rem;
+/* Quadrant label — top-left badge inside each quadrant cell */
+.quadrant-title {
+    font-size: 0.95rem;
     font-weight: 700;
-    text-align: right;
+    text-align: left;
     letter-spacing: 0.01em;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid currentColor;
+    opacity: 0.85;
+}
+
+.quadrant-sub {
+    font-weight: 400;
+    font-size: 0.8rem;
+    opacity: 0.75;
 }
 
 /* Quadrant colours */
